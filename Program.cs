@@ -76,7 +76,7 @@ namespace Топография_солдаты
 									if (((averageMath - average) <= 0.3) && (averageMath == score))
 									{
 										answers[next] = ($"{values[i]} {values[j]} {values[k]} {values[l]} {values[m]}").ToString();
-										//Console.WriteLine($"{next}\t{answers[next]}");
+										Console.WriteLine($"{next}\t{answers[next]}");
 										next++;
 									}
 								}
@@ -186,6 +186,7 @@ namespace Топография_солдаты
 			string[] score4 = generetanigPrakticalAnswers(4);
 			string[] score3 = generetanigPrakticalAnswers(3);
 			string[] score2 = generetanigPrakticalAnswers(2);
+			Console.ReadKey();
 		}
 	}
 }
