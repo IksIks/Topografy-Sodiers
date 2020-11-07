@@ -72,6 +72,30 @@ namespace Топография_солдаты
 			int[] overallScore = fillingArray(five, fillingArray(four, fillingArray(three, fillingArray(two, temp /*vip[0]), vip[0]*/))));
 			int[] practicalScore = new int[fio.Length];
 			Array.Copy(overallScore, practicalScore, fio.Length);
+
+			int[] practicalAnswer = new int[fio.Length];
+			for (int i = 0; i < practicalAnswer.Length; i++)
+			{
+				switch (practicalScore[i])
+				{
+					case 5:
+						random = r.Next(4, 6);
+						practicalAnswer[i] = random;
+						break;
+					case 4:
+						random = r.Next(4, 6);
+						practicalAnswer[i] = random;
+						break;
+					case 3:
+						random = r.Next(3, 6);
+						practicalAnswer[i] = random;
+						break;
+					case 2:
+						random = r.Next(2, 4);
+						practicalAnswer[i] = random;
+						break;
+				}
+			}
 		}
 	}
 }
