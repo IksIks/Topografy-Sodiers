@@ -55,7 +55,7 @@ namespace Топография_солдаты
 		}
 		public static string[] generetanigPrakticalAnswers(int score)
 		{
-			string[] answers = new string[500];
+			string[] answers = new string[460];
 			double[] values = { 5, 4, 3, 2 };
 			int next = 0;
 			if ((score == 5) || (score == 4))           //
@@ -76,7 +76,7 @@ namespace Топография_солдаты
 									if (((averageMath - average) <= 0.3) && (averageMath == score))
 									{
 										answers[next] = ($"{values[i]} {values[j]} {values[k]} {values[l]} {values[m]}").ToString();
-										Console.WriteLine($"{next}\t{answers[next]}");
+										//Console.WriteLine($"{next}\t{answers[next]}");
 										next++;
 									}
 								}
@@ -102,6 +102,7 @@ namespace Топография_солдаты
 									if (((averageMath - average) <= 0.3) && (averageMath == score))
 									{
 										answers[next] = ($"{values[i]} {values[j]} {values[k]} {values[l]} {values[m]}").ToString();
+										//Console.WriteLine($"{next}\t{answers[next]}");
 										next++;
 									}
 								}
@@ -186,7 +187,39 @@ namespace Топография_солдаты
 			string[] score4 = generetanigPrakticalAnswers(4);
 			string[] score3 = generetanigPrakticalAnswers(3);
 			string[] score2 = generetanigPrakticalAnswers(2);
-			Console.ReadKey();
+			string[] theoryAnswer = new string[fio.Length];
+			for (int i = 0; i < practicalAnswer.Length; i++)
+			{
+				switch (theoryScore[i])
+				{
+					case 5:
+						random = r.Next(0, score5.Length);
+						theoryAnswer[i] = score5[random];
+						break;
+					case 4:
+						random = r.Next(0, score4.Length);
+						theoryAnswer[i] = score4[random];
+						break;
+					case 3:
+						random = r.Next(0, score3.Length);
+						theoryAnswer[i] = score3[random];
+						break;
+					case 2:
+						random = r.Next(0, score2.Length);
+						theoryAnswer[i] = score2[random];
+						break;
+				}
+			}
+			using (StreamWriter end = new StreamWriter("ведомость.txt"))
+			{
+				end.WriteLine("Звание\tФамилия\tТеоритическая подготовка\tОценка\tПрактическая подготовка\tОценка\tОбщая оценка");
+				for (int i = 0; i < fio.Length; i++)
+				{
+					end.WriteLine(($"{fio[i],10}\t{theoryAnswer[i],10}\t{theoryScore[i]}\t{practicalAnswer[i]}\t{practicalScore[i]}\t{overallScore[i]}"));					
+				}
+			}
+			Console.WriteLine("Программа завершена :-)) ");
+			Thread.Sleep(1000);			
 		}
 	}
 }
