@@ -137,7 +137,9 @@ namespace Топография_солдаты
 			int[] practicalScore = new int[fio.Length];
 			Array.Copy(overallScore, practicalScore, fio.Length);
 
+
 			int[] practicalAnswer = new int[fio.Length];
+			int[] theoryScore = new int[fio.Length];
 			for (int i = 0; i < practicalAnswer.Length; i++)
 			{
 				switch (practicalScore[i])
@@ -145,44 +147,30 @@ namespace Топография_солдаты
 					case 5:
 						random = r.Next(4, 6);
 						practicalAnswer[i] = random;
+						random = r.Next(4, 6);
+						theoryScore[i] = random;
 						break;
 					case 4:
 						random = r.Next(4, 6);		// изменил 3 на 4 чтоб было поменьше оценок 54245
 						practicalAnswer[i] = random;
-						break;
-					case 3:
-						random = r.Next(3, 6);
-						practicalAnswer[i] = random;
-						break;
-					case 2:
-						random = r.Next(2, 4);
-						practicalAnswer[i] = random;
-						break;
-				}
-			}
-			int[] theoryScore = new int[fio.Length];
-			for (int j = 0; j < theoryScore.Length; j++)
-			{
-				switch (practicalScore[j])
-				{
-					case 5:
 						random = r.Next(4, 6);
-						theoryScore[j] = random;
-						break;
-					case 4:
-						random = r.Next(4, 6);      // изменил 3 на 4 чтоб было поменьше оценок 54245
-						theoryScore[j] = random;
+						theoryScore[i] = random;
 						break;
 					case 3:
 						random = r.Next(3, 6);
-						theoryScore[j] = random;
+						practicalAnswer[i] = random;
+						random = r.Next(3, 6);
+						theoryScore[i] = random;
 						break;
 					case 2:
 						random = r.Next(2, 4);
-						theoryScore[j] = random;
+						practicalAnswer[i] = random;
+						random = r.Next(2, 4);
+						theoryScore[i] = random;
 						break;
 				}
 			}
+			
 			string[] score5 = generetanigPrakticalAnswers(5);
 			string[] score4 = generetanigPrakticalAnswers(4);
 			string[] score3 = generetanigPrakticalAnswers(3);
