@@ -134,37 +134,30 @@ namespace Топография_солдаты
 			string[] fio = File.ReadAllLines("ФИО.txt");
 			int[] temp = new int[fio.Length];
 			int[] overallScore = fillingArray(five, fillingArray(four, fillingArray(three, fillingArray(two, temp /*vip[0]), vip[0]*/))));
+
 			int[] practicalScore = new int[fio.Length];
-			Array.Copy(overallScore, practicalScore, fio.Length);
-
-
 			int[] practicalAnswer = new int[fio.Length];
+			Array.Copy(overallScore, practicalScore, fio.Length);
+			Array.Copy(practicalScore, practicalAnswer, fio.Length);
 			int[] theoryScore = new int[fio.Length];
+
 			for (int i = 0; i < practicalAnswer.Length; i++)
 			{
 				switch (practicalScore[i])
 				{
-					case 5:
-						random = r.Next(4, 6);
-						practicalAnswer[i] = random;
+					case 5:						
 						random = r.Next(4, 6);
 						theoryScore[i] = random;
 						break;
 					case 4:
-						random = r.Next(4, 6);		// изменил 3 на 4 чтоб было поменьше оценок 54245
-						practicalAnswer[i] = random;
-						random = r.Next(4, 6);
-						theoryScore[i] = random;
+						random = r.Next(4, 6);		// изменил 3 на 4 чтоб было поменьше оценок (54245 общая 4)
+						theoryScore[i] = random;						
 						break;
-					case 3:
-						random = r.Next(3, 6);
-						practicalAnswer[i] = random;
+					case 3:						
 						random = r.Next(3, 6);
 						theoryScore[i] = random;
 						break;
-					case 2:
-						random = r.Next(2, 4);
-						practicalAnswer[i] = random;
+					case 2:						
 						random = r.Next(2, 4);
 						theoryScore[i] = random;
 						break;
