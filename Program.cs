@@ -169,7 +169,7 @@ namespace Топография_солдаты
 			string[] score3 = generetanigPrakticalAnswers(3);
 			string[] score2 = generetanigPrakticalAnswers(2);
 			string[] theoryAnswer = new string[fio.Length];
-			for (int i = 0; i < practicalAnswer.Length; i++)
+			for (int i = 0; i < theoryScore.Length; i++)
 			{
 				switch (theoryScore[i])
 				{
