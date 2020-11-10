@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -154,7 +154,7 @@ namespace Топография_солдаты
 						theoryScore[i] = random;						
 						break;
 					case 3:						
-						random = r.Next(3, 6);
+						random = r.Next(3, 5);
 						theoryScore[i] = random;
 						break;
 					case 2:						
